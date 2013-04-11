@@ -6,7 +6,7 @@ namespace Jesko.ODataExtensions.Tests
     public class ODataExtensionsTests
     {
         [Test]
-        public void Filter_Generates_OData_Filter()
+        public void Filter_Generates_OData_Filter_For_Equality()
         {
             var instance = new ClassWithProperties();
 
