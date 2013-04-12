@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace Jesko.ODataExtensions.Tests
 {
@@ -75,10 +76,37 @@ namespace Jesko.ODataExtensions.Tests
 
             Assert.AreEqual("$filter(IntegerProperty le '7')", actual.ToString());
         }
+
+        [Test]
+        public void Filter_Throws_ArgumentException_When_LeftSide_Not_A_Property()
+        {
+            var instance = new ClassWithProperties();
+
+            Assert.Throws<ArgumentException>(() => instance.Filter(x => 7 == x.IntegerProperty));
+        }
+
+        [Test]
+        public void Filter_Throws_ArgumentException_When_ExpressionType_Not_Supported()
+        {
+            var instance = new ClassWithProperties();
+
+            Assert.Throws<ArgumentException>(() => instance.Filter(x => x.StringProperty.Contains("abc123")));
+        }
+
+        [Test]
+        public void Filter_Works_With_Fields()
+        {
+            var instance = new ClassWithProperties();
+
+            var actual = instance.Filter(x => x.Field == "foo");
+
+            Assert.AreEqual("$filter(Field eq 'foo')", actual.ToString());
+        }
     }
 
     class ClassWithProperties
     {
+        public string Field;
         public string StringProperty { get; set; }
         public int IntegerProperty { get; set; }
     }

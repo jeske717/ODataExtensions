@@ -14,13 +14,21 @@ namespace Jesko.ODataExtensions
         public static OData Filter<TResult>(this object instance, Expression<Func<TResult, bool>> expression)
         {
             var binaryExpression = expression.Body as BinaryExpression;
-            var left = binaryExpression.Left as MemberExpression;
-            var field = left.Member as PropertyInfo;
-            var right = binaryExpression.Right.ToString().Replace("\"", "");
+            if(binaryExpression == null)
+            {
+                throw new ArgumentException("Operation supplied is not supported");
+            }
 
+            var left = binaryExpression.Left as MemberExpression;
+            if(left == null)
+            {
+                throw new ArgumentException("Left side operand must be a property");
+            }
+
+            var right = binaryExpression.Right.ToString().Replace("\"", "");
             return new OData
                        {
-                           PropertyName = field.Name,
+                           PropertyName = left.Member.Name,
                            Method = Method(binaryExpression.NodeType),
                            Value = right
                        };
