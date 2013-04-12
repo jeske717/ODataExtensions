@@ -8,6 +8,11 @@ namespace Jesko.ODataExtensions
     {
         public static OData Filter<TResult>(this TResult instance, Expression<Func<TResult, bool>> expression)
         {
+            return Filter(instance as object, expression);
+        }
+
+        public static OData Filter<TResult>(this object instance, Expression<Func<TResult, bool>> expression)
+        {
             var binaryExpression = expression.Body as BinaryExpression;
             var left = binaryExpression.Left as MemberExpression;
             var field = left.Member as PropertyInfo;
