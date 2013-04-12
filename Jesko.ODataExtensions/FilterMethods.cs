@@ -25,7 +25,7 @@ namespace Jesko.ODataExtensions
             }
 
             var right = binaryExpression.Right.ToString().Replace("\"", "");
-            return new OData
+            return new FilterOData
                        {
                            PropertyName = left.Member.Name,
                            Method = Method(binaryExpression.NodeType),

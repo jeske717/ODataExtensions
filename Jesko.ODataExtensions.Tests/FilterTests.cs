@@ -1,4 +1,5 @@
 ﻿using System;
+using Jesko.ODataExtensions.Tests.Pocos;
 using NUnit.Framework;
 
 namespace Jesko.ODataExtensions.Tests
@@ -102,16 +103,5 @@ namespace Jesko.ODataExtensions.Tests
 
             Assert.AreEqual("$filter=(Field eq 'foo')", actual.ToString());
         }
-    }
-
-    class ClassWithProperties
-    {
-        public string Field;
-        public string StringProperty { get; set; }
-        public int IntegerProperty { get; set; }
-    }
-
-    class OtherClass
-    {
     }
 }
