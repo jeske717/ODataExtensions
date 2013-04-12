@@ -1,17 +1,18 @@
 using System;
 using System.Linq.Expressions;
 using Jesko.ODataExtensions.Helpers;
+using Jesko.ODataExtensions.Mixins;
 
 namespace Jesko.ODataExtensions.Methods
 {
     public static class FilterMethods
     {
-        public static OData Filter<TResult>(this TResult instance, Expression<Func<TResult, bool>> expression)
+        public static OData Filter<TResult>(this IODataCapable<TResult> instance, Expression<Func<TResult, bool>> expression) where TResult : class
         {
-            return Filter(instance as object, expression);
+            return Filter(instance as IODataCapable, expression);
         }
 
-        public static OData Filter<TResult>(this object instance, Expression<Func<TResult, bool>> expression)
+        public static OData Filter<TResult>(this IODataCapable instance, Expression<Func<TResult, bool>> expression)
         {
             var binaryExpression = expression.Body as BinaryExpression;
             if(binaryExpression == null)

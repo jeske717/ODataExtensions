@@ -24,7 +24,7 @@ namespace Jesko.ODataExtensions.Tests.Methods
             var instance = new OtherClass();
             const int rightSide = 23;
 
-            var actual = instance.Filter<ClassWithProperties>(x => x.IntegerProperty == rightSide);
+            var actual = instance.Filter(x => x.IntegerProperty == rightSide);
 
             Assert.AreEqual("$filter=(IntegerProperty eq '23')", actual.ToString());
         }

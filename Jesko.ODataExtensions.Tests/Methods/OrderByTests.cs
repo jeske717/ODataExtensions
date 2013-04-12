@@ -33,7 +33,7 @@ namespace Jesko.ODataExtensions.Tests.Methods
         {
             var instance = new OtherClass();
 
-            var actual = instance.OrderBy<ClassWithProperties>(x => x.StringProperty, OrderBy.Descending);
+            var actual = instance.OrderBy(x => x.StringProperty, OrderBy.Descending);
 
             Assert.AreEqual("$orderby=(StringProperty desc)", actual.ToString());
         }

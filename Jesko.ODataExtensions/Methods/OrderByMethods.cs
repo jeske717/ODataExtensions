@@ -1,6 +1,7 @@
 using System;
 using System.Linq.Expressions;
 using Jesko.ODataExtensions.Helpers;
+using Jesko.ODataExtensions.Mixins;
 
 namespace Jesko.ODataExtensions.Methods
 {
@@ -11,12 +12,12 @@ namespace Jesko.ODataExtensions.Methods
 
     public static class OrderByMethods
     {
-        public static OData OrderBy<TResult>(this TResult instance, Expression<Func<TResult, object>> expression, OrderBy order = Methods.OrderBy.Ascending)
+        public static OData OrderBy<TResult>(this IODataCapable<TResult> instance, Expression<Func<TResult, object>> expression, OrderBy order = Methods.OrderBy.Ascending) where TResult : class
         {
-            return OrderBy(instance as object, expression, order);
+            return OrderBy(instance as IODataCapable, expression, order);
         }
 
-        public static OData OrderBy<TResult>(this object instance, Expression<Func<TResult, object>> expression, OrderBy order = Methods.OrderBy.Ascending)
+        public static OData OrderBy<TResult>(this IODataCapable instance, Expression<Func<TResult, object>> expression, OrderBy order = Methods.OrderBy.Ascending)
         {
             var member = expression.Body as MemberExpression;
 

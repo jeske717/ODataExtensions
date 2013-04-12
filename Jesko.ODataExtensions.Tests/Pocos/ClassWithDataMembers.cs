@@ -1,9 +1,10 @@
 ﻿using System.Runtime.Serialization;
+using Jesko.ODataExtensions.Mixins;
 
 namespace Jesko.ODataExtensions.Tests.Pocos
 {
     [DataContract]
-    public class ClassWithDataMembers
+    public class ClassWithDataMembers : IODataCapable<ClassWithDataMembers>
     {
         [DataMember(Name = "FormattedProperty")]
         public string DataMemberProperty { get; set; }

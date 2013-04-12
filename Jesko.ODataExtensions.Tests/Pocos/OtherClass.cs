@@ -1,6 +1,8 @@
+using Jesko.ODataExtensions.Mixins;
+
 namespace Jesko.ODataExtensions.Tests.Pocos
 {
-    class OtherClass
+    class OtherClass : IODataCapable<ClassWithProperties>
     {
     }
 }

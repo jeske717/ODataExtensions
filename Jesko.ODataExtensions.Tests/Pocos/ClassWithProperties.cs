@@ -1,6 +1,8 @@
+using Jesko.ODataExtensions.Mixins;
+
 namespace Jesko.ODataExtensions.Tests.Pocos
 {
-    class ClassWithProperties
+    class ClassWithProperties : IODataCapable<ClassWithProperties>
     {
         public string Field;
         public string StringProperty { get; set; }
