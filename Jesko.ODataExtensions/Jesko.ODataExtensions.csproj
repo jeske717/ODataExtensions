@@ -41,10 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FilterMethods.cs" />
     <Compile Include="Helpers\PropertyNameHelper.cs" />
+    <Compile Include="Methods\FilterMethods.cs" />
+    <Compile Include="Methods\OrderByMethods.cs" />
     <Compile Include="OData.cs" />
-    <Compile Include="OrderByMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

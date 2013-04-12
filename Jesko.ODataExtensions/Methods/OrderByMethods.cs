@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Linq.Expressions;
 using Jesko.ODataExtensions.Helpers;
 
-namespace Jesko.ODataExtensions
+namespace Jesko.ODataExtensions.Methods
 {
     public enum OrderBy
     {
@@ -11,12 +11,12 @@ namespace Jesko.ODataExtensions
 
     public static class OrderByMethods
     {
-        public static OData OrderBy<TResult>(this TResult instance, Expression<Func<TResult, object>> expression, OrderBy order = ODataExtensions.OrderBy.Ascending)
+        public static OData OrderBy<TResult>(this TResult instance, Expression<Func<TResult, object>> expression, OrderBy order = Methods.OrderBy.Ascending)
         {
             return OrderBy(instance as object, expression, order);
         }
 
-        public static OData OrderBy<TResult>(this object instance, Expression<Func<TResult, object>> expression, OrderBy order = ODataExtensions.OrderBy.Ascending)
+        public static OData OrderBy<TResult>(this object instance, Expression<Func<TResult, object>> expression, OrderBy order = Methods.OrderBy.Ascending)
         {
             var member = expression.Body as MemberExpression;
 
@@ -28,7 +28,7 @@ namespace Jesko.ODataExtensions
             return new OrderByOData
             {
                 PropertyName = PropertyNameHelper.PropertyName(member.Member),
-                Order = order == ODataExtensions.OrderBy.Ascending ? "asc" : "desc"
+                Order = order == Methods.OrderBy.Ascending ? "asc" : "desc"
             };
         }
     }

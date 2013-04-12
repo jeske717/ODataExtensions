@@ -1,8 +1,9 @@
-﻿using System;
+using System;
+using Jesko.ODataExtensions.Methods;
 using Jesko.ODataExtensions.Tests.Pocos;
 using NUnit.Framework;
 
-namespace Jesko.ODataExtensions.Tests
+namespace Jesko.ODataExtensions.Tests.Methods
 {
     [TestFixture]
     public class FilterTests

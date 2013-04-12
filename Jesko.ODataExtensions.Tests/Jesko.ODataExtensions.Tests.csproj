@@ -44,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FilterTests.cs" />
-    <Compile Include="OrderByTests.cs" />
+    <Compile Include="Methods\FilterTests.cs" />
+    <Compile Include="Methods\OrderByTests.cs" />
     <Compile Include="Pocos\ClassWithDataMembers.cs" />
     <Compile Include="Pocos\ClassWithProperties.cs" />
     <Compile Include="Pocos\OtherClass.cs" />

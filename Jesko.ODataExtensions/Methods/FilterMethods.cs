@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Linq.Expressions;
 using Jesko.ODataExtensions.Helpers;
 
-namespace Jesko.ODataExtensions
+namespace Jesko.ODataExtensions.Methods
 {
     public static class FilterMethods
     {
