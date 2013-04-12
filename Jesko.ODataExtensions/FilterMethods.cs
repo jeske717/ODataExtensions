@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Linq.Expressions;
-using System.Reflection;
 
 namespace Jesko.ODataExtensions
 {
-    public static class Methods
+    public static class FilterMethods
     {
         public static OData Filter<TResult>(this TResult instance, Expression<Func<TResult, bool>> expression)
         {

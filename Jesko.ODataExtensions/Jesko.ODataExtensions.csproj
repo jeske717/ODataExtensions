@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Methods.cs" />
+    <Compile Include="FilterMethods.cs" />
     <Compile Include="OData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

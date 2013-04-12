@@ -13,7 +13,7 @@ namespace Jesko.ODataExtensions.Tests
 
             var actual = instance.Filter(x => x.StringProperty == "value");
 
-            Assert.AreEqual("$filter(StringProperty eq 'value')", actual.ToString());
+            Assert.AreEqual("$filter=(StringProperty eq 'value')", actual.ToString());
         }
         
         [Test]
@@ -24,7 +24,7 @@ namespace Jesko.ODataExtensions.Tests
 
             var actual = instance.Filter<ClassWithProperties>(x => x.IntegerProperty == rightSide);
 
-            Assert.AreEqual("$filter(IntegerProperty eq '23')", actual.ToString());
+            Assert.AreEqual("$filter=(IntegerProperty eq '23')", actual.ToString());
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace Jesko.ODataExtensions.Tests
 
             var actual = instance.Filter(x => x.StringProperty != "value");
 
-            Assert.AreEqual("$filter(StringProperty ne 'value')", actual.ToString());
+            Assert.AreEqual("$filter=(StringProperty ne 'value')", actual.ToString());
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace Jesko.ODataExtensions.Tests
 
             var actual = instance.Filter(x => x.IntegerProperty > 7);
 
-            Assert.AreEqual("$filter(IntegerProperty gt '7')", actual.ToString());
+            Assert.AreEqual("$filter=(IntegerProperty gt '7')", actual.ToString());
         }
 
         [Test]
@@ -54,7 +54,7 @@ namespace Jesko.ODataExtensions.Tests
 
             var actual = instance.Filter(x => x.IntegerProperty >= 7);
 
-            Assert.AreEqual("$filter(IntegerProperty ge '7')", actual.ToString());
+            Assert.AreEqual("$filter=(IntegerProperty ge '7')", actual.ToString());
         }
 
         [Test]
@@ -64,7 +64,7 @@ namespace Jesko.ODataExtensions.Tests
 
             var actual = instance.Filter(x => x.IntegerProperty < 7);
 
-            Assert.AreEqual("$filter(IntegerProperty lt '7')", actual.ToString());
+            Assert.AreEqual("$filter=(IntegerProperty lt '7')", actual.ToString());
         }
 
         [Test]
@@ -74,7 +74,7 @@ namespace Jesko.ODataExtensions.Tests
 
             var actual = instance.Filter(x => x.IntegerProperty <= 7);
 
-            Assert.AreEqual("$filter(IntegerProperty le '7')", actual.ToString());
+            Assert.AreEqual("$filter=(IntegerProperty le '7')", actual.ToString());
         }
 
         [Test]
@@ -100,7 +100,7 @@ namespace Jesko.ODataExtensions.Tests
 
             var actual = instance.Filter(x => x.Field == "foo");
 
-            Assert.AreEqual("$filter(Field eq 'foo')", actual.ToString());
+            Assert.AreEqual("$filter=(Field eq 'foo')", actual.ToString());
         }
     }
 
