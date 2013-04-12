@@ -3,7 +3,7 @@
 namespace Jesko.ODataExtensions.Tests
 {
     [TestFixture]
-    public class ODataExtensionsTests
+    public class FilterTests
     {
         [Test]
         public void Filter_Generates_OData_Filter_For_Equality()
