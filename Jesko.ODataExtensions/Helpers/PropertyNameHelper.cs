@@ -11,7 +11,8 @@ namespace Jesko.ODataExtensions.Helpers
              var dataMemberAttribute = memberInfo.GetCustomAttributes(typeof(DataMemberAttribute), false);
              if (dataMemberAttribute.Any())
              {
-                 return (dataMemberAttribute.First() as DataMemberAttribute).Name;
+                 var dataMemberName = (dataMemberAttribute.First() as DataMemberAttribute).Name;
+                 return string.IsNullOrEmpty(dataMemberName) ? memberInfo.Name : dataMemberName;
              }
              return memberInfo.Name;
          }

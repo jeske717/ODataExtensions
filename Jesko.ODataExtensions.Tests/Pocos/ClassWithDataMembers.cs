@@ -7,5 +7,8 @@ namespace Jesko.ODataExtensions.Tests.Pocos
     {
         [DataMember(Name = "FormattedProperty")]
         public string DataMemberProperty { get; set; }
+
+        [DataMember]
+        public string DefaultName { get; set; }
     }
 }

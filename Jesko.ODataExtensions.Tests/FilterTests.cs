@@ -113,5 +113,15 @@ namespace Jesko.ODataExtensions.Tests
 
             Assert.AreEqual("$filter=(FormattedProperty eq 'some value')", actual.ToString());
         }
+
+        [Test]
+        public void Filter_Uses_PropertyName_When_No_DataMember_Name()
+        {
+            var instance = new ClassWithDataMembers();
+
+            var actual = instance.Filter(x => x.DefaultName == "some value");
+
+            Assert.AreEqual("$filter=(DefaultName eq 'some value')", actual.ToString());
+        }
     }
 }
