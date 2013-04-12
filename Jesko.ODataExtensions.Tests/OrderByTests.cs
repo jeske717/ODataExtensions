@@ -44,5 +44,15 @@ namespace Jesko.ODataExtensions.Tests
 
             Assert.Throws<ArgumentException>(() => instance.OrderBy(x => "foo"));
         }
+
+        [Test]
+        public void OrderBy_Uses_DataMember_Value_If_Present()
+        {
+            var instance = new ClassWithDataMembers();
+
+            var actual = instance.OrderBy(x => x.DataMemberProperty);
+
+            Assert.AreEqual("$orderby=(FormattedProperty asc)", actual.ToString());
+        }
     }
 }

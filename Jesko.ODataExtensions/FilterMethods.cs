@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using Jesko.ODataExtensions.Helpers;
 
 namespace Jesko.ODataExtensions
 {
@@ -27,7 +28,7 @@ namespace Jesko.ODataExtensions
             var right = binaryExpression.Right.ToString().Replace("\"", "");
             return new FilterOData
                        {
-                           PropertyName = left.Member.Name,
+                           PropertyName = PropertyNameHelper.PropertyName(left.Member),
                            Method = Method(binaryExpression.NodeType),
                            Value = right
                        };

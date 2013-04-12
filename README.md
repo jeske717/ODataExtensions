@@ -11,7 +11,7 @@ Here are some examples, but feel free to read the tests for more API usage
 ### Filtering
 	var person = new Person();
 	var odata = person.Filter(p => p.Name == "Jimi Hendrix");
-	// odata.ToString() produces "$filter=(Name eq 'Jimi Hendrix')
+	// odata.ToString() produces "$filter=(Name eq 'Jimi Hendrix')"
 	
 ### Ordering
 	var person = new Person();

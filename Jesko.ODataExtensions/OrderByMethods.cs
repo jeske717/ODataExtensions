@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using Jesko.ODataExtensions.Helpers;
 
 namespace Jesko.ODataExtensions
 {
@@ -26,7 +27,7 @@ namespace Jesko.ODataExtensions
 
             return new OrderByOData
             {
-                PropertyName = member.Member.Name,
+                PropertyName = PropertyNameHelper.PropertyName(member.Member),
                 Order = order == ODataExtensions.OrderBy.Ascending ? "asc" : "desc"
             };
         }
